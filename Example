@@ -1,0 +1,66 @@
+using System;
+namespace study {
+  class MainClass {
+    public static void Main (string[] args) {
+      //Create single-dimensional array of decimal data type
+      var stockPrices = new decimal[10];
+      stockPrices[0] = 100.81m;
+      stockPrices[1] = 99.53m;
+      stockPrices[2] = 97.82m;
+      stockPrices[3] = 97.47m;
+      stockPrices[4] = 98.23m;
+      stockPrices[5] = 97.45m;
+      stockPrices[6] = 98.87m;
+      stockPrices[7] = 99.66m;
+      stockPrices[8] = 99.80m;
+      stockPrices[9] = 100.83m;
+      Array.Sort(stockPrices); //sort the array
+      Console.WriteLine($"Lowest stock price was {stockPrices[0]}");
+      Console.WriteLine($"Highest stock price was {stockPrices[9]}");
+      Console.WriteLine("----------");
+
+      Console.WriteLine("***Study data of heights and weights.***");
+      //create multi-dimensional array with object initialization syntax
+      //13 rows and 2 collums in the array
+      //This array represents a list of heights and weight pairs in a study
+      var hwStudy = new double[13,2] {
+                          {5.6, 135},
+                          {5.9, 210},
+                          {6.4, 302},
+                          {5.5, 175},
+                          {5.6, 190},
+                          {4.9, 127},
+                          {5.1, 155},
+                          {5.1, 165},
+                          {5.9, 210},
+                          {6.1, 174},
+                          {6.3, 311},
+                          {5.7, 188},
+                          {5.8, 169},
+      }; //end array
+
+      //Output a sepecific element in a multi-dimensional array
+      Console.WriteLine($"The second person a height of {hwStudy[1,0]}");
+      Console.WriteLine($"The second person has a weight of {hwStudy[1,1]}");
+      Console.WriteLine($"The fifth person has a height of {hwStudy[4,0]}");
+      Console.WriteLine($"The fifth person has a weight of {hwStudy[4,1]}");
+
+      var sumHeight = 0d;
+      var sumWeight = 0d;
+      //using .Length will return 24 elements because in a multi-dimensional array, ALL the elements are counted. Must use .GetLength(0) to count the rows.
+      var rowCount = hwStudy.GetLength(0);
+
+      //use for loop not foreach loop. The for loop gives more control over the elements.
+      for (var i = 0; i < rowCount; i++) {
+        Console.WriteLine(i); //just to see value of i
+        sumHeight = sumHeight + hwStudy[i, 0]; //height is index 0 of second dimension
+        sumWeight = sumWeight + hwStudy[i, 1]; //Weight is index 1 of second dimension
+      }
+      var avgHeight = sumHeight / rowCount;
+      var avgWeight = sumWeight / rowCount;
+      Console.WriteLine($"In this study, the average height is {avgHeight:f1}");
+      Console.WriteLine($"In this study, the average weight is {avgWeight:f1}");
+
+    } //end Main
+  } //end class
+} //end namespace
