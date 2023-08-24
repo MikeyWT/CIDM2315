@@ -1,3 +1,6 @@
+//THIS IS AN EXAMPLE FOR CIDM 2315
+
+
 using System;
 namespace study {
   class MainClass {
